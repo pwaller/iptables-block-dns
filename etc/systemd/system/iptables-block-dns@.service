@@ -1,0 +1,14 @@
+[Unit]
+Description=Block %i by DNS request
+After=network.target
+PartOf=block-distractions.target
+BindsTo=block-distractions.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/local/bin/iptables-block-dns --add %i
+ExecStop=/usr/local/bin/iptables-block-dns --del %i
+
+[Install]
+WantedBy=block-distractions.target

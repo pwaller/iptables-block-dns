@@ -1,0 +1,7 @@
+[package]
+name = "iptables-block-dns"
+version = "0.0.0"
+
+[dependencies]
+rustc-serialize = "0.3"
+clap = "2"
