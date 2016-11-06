@@ -12,9 +12,12 @@ to kick-in.
 
 # Installation
 
+More details are given below, but here is the outline:
+
 1. Build or download the binary and place it in `/usr/local/bin`.
-2. Install the systemd unit files.
-3. To block website.com, run `systemctl enable iptables-block-dns@website.com`.
+2. Install the systemd unit files `block-distractions.target` and `iptables-block-dns@.service`.
+3. To block `website.com` on boot, run `systemctl enable iptables-block-dns@website.com`. (repeat for all websites which need blocking)
+4. To unblock/reblock all websites, simply run `systemctl stop/start block-distractions.target`
 
 ## Build or download binary
 
