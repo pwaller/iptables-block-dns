@@ -8,7 +8,7 @@ use rustc_serialize::hex::ToHex;
 
 fn main() {
     let app = App::new("iptables-block-dns")
-        .version("0.0.0")
+        .version("0.1.0")
         .about("\nBlock sites by blocking outgoing DNS packets with iptables")
         .args_from_usage(
             "-a, --add 'Insert rule'
