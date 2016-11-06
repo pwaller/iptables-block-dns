@@ -1,6 +1,6 @@
 [root]
 name = "iptables-block-dns"
-version = "0.0.0"
+version = "0.1.0"
 dependencies = [
  "clap 2.17.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "rustc-serialize 0.3.19 (registry+https://github.com/rust-lang/crates.io-index)",
