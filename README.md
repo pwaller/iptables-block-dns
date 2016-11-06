@@ -10,6 +10,27 @@ parts even realise.
 Best to put a barrier in the way and give the higher functioning part a chance
 to kick-in.
 
+## How does it work, why is it needed?
+
+I used to block websites by simply putting `0.0.0.0` in my `/etc/hosts file`.
+Unfortunately that stopped working, particularly with the Chromium browser. So
+I needed something more sophisticated. For this, we make an iptables rule along
+these lines:
+
+```
+iptables --append OUTPUT \
+         --protocol udp \
+         --dport 53 \
+         --match string \
+         --hex-string "|07|website|03|com" \
+         --algo bm \
+         --jump DROP
+```
+
+This makes the machine drop outgoing DNS packets requesting anything containing
+`website.com`. It's like you never made the query. Browsers quickly give up in
+this case and show you a "this site is can't be reached"-style page.
+
 # Installation
 
 More details are given below, but here is the outline:
