@@ -30,7 +30,7 @@ the repository and run `cargo install --release`. Copy the resulting binary to
 Copy the files `block-distractions.target` and `iptables-block-dns@.service` from
 [etc/systemd/system/](https://github.com/pwaller/iptables-block-dns/tree/master/etc/systemd/system) to `/etc/systemd/system/`.
 
-Once you've done this, run:
+Once you've done that, run this to enable websites to be blocked automatically on boot:
 
 ```
 systemctl enable block-distractions.target
