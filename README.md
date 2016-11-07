@@ -12,7 +12,7 @@ to kick-in.
 
 ## How does it work, why is it needed?
 
-I used to block websites by simply putting `0.0.0.0` in my `/etc/hosts file`.
+I used to block websites by simply putting `0.0.0.0` in my `/etc/hosts` file.
 Unfortunately that stopped working, particularly with the Chromium browser. So
 I needed something more sophisticated. For this, we make an iptables rule along
 these lines:
@@ -30,6 +30,10 @@ iptables --append OUTPUT \
 This makes the machine drop outgoing DNS packets requesting anything containing
 `website.com`. It's like you never made the query. Browsers quickly give up in
 this case and show you a "this site is can't be reached"-style page.
+
+The Linux kernel comes with `iptables` built in. All we need to do is run this
+command automatically when the machine boots, and provide a way of removing
+the rule (you know, for emergencies).
 
 # Installation
 
